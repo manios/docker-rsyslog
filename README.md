@@ -18,3 +18,7 @@ RSYSLOG can deliver over one million messages per second to local destinations w
 # How to use this image
 
 * TODO
+
+# Aknowledgements
+
+* TODO
