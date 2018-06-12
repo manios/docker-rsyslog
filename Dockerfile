@@ -27,6 +27,7 @@ RUN apt-get update \
         vim \
         htop \
         netcat \
+        graphviz \
         net-tools \
         logrotate \
         libfastjson4 \
