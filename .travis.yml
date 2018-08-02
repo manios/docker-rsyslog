@@ -2,7 +2,7 @@ language: bash
 services: docker
 
 env:
-  - VERSION=8.34.0
+  - VERSION=8.36.0
   
 install:
   - git clone https://github.com/manios/docker-rsyslog.git
@@ -12,11 +12,11 @@ before_script:
   - image="rsyslog:$VERSION"
 
 script:
-  - travis_retry docker build -t "$image" .
+  - travis_retry docker build -t manios/"$image" .
 
 after_script:
   - docker images
-  - docker run -d --name myrsyslog manios/rsyslog:"$VERSION"
+  - docker run -d --name myrsyslog manios/"$image"
   - docker rm -f myrsyslog
 
 # vim:set et ts=2 sw=2:
