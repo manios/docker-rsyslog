@@ -9,14 +9,16 @@ install:
 
 before_script:
   - env | sort
-  - image="rsyslog:$VERSION"
+  - image="manios/rsyslog:$VERSION"
 
 script:
-  - travis_retry docker build -t manios/"$image" .
+  - travis_retry docker build -t "$image" .
 
 after_script:
   - docker images
-  - docker run -d --name myrsyslog manios/"$image"
+  - docker run -d --name myrsyslog "$image"
+  - docker run -it --rm "$image" rsyslogd -v
+  - docker run -it --rm "$image" lognormalizer -V
   - docker rm -f myrsyslog
 
 # vim:set et ts=2 sw=2:
