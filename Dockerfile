@@ -1,3 +1,6 @@
+FROM manios/multi-stage-rsyslog:latest as builder
+WORKDIR /
+
 FROM ubuntu:16.04
 ENV	DEBIAN_FRONTEND=noninteractive
 
@@ -13,7 +16,7 @@ LABEL name="Rsyslog" \
 # We use Ubuntu 16.04 on purpose because 
 # newer versions do not have liblogging-stdlog0 package
 
-
+COPY --from=builder /home/devel/proj/rsyslog/plugins/mmdblookup/.libs/mmdblookup.so /usr/lib/rsyslog/mmdblookup.so
 COPY /start.sh /usr/sbin/start-rsyslog
 COPY /lognorm.sh /usr/sbin/lognorm
 
