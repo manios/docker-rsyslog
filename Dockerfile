@@ -16,7 +16,9 @@ LABEL name="Rsyslog" \
 # We use Ubuntu 16.04 on purpose because 
 # newer versions do not have liblogging-stdlog0 package
 
+# Add mmdblookup library
 COPY --from=builder /home/devel/proj/rsyslog/plugins/mmdblookup/.libs/mmdblookup.so /usr/lib/rsyslog/mmdblookup.so
+
 COPY /start.sh /usr/sbin/start-rsyslog
 COPY /lognorm.sh /usr/sbin/lognorm
 
@@ -63,7 +65,12 @@ RUN apt-get update \
     && echo "set number" | tee -a /etc/vim/vimrc \
     && echo "syntax on" | tee -a /etc/vim/vimrc \
     && echo "colorscheme evening" | tee -a /etc/vim/vimrc 
-    
+
+# Override Libfastjson,Liblognorm and Lognormalizer with latest commit
+COPY --from=builder  /home/devel/proj/liblognorm/src/.libs/lognormalizer       /usr/lib/lognorm/lognormalizer
+COPY --from=builder  /home/devel/proj/libfastjson/.libs/libfastjson.so.4.2.0   /usr/lib/libfastjson.so.4.2.0
+COPY --from=builder  /home/devel/proj/liblognorm/src/.libs/liblognorm.so.5.1.0 /usr/lib/liblognorm.so.5.1.0
+
 EXPOSE 514 514/udp
 
 VOLUME [ "/var/log", "/etc/rsyslog.d" ]
