@@ -2,7 +2,7 @@ language: bash
 services: docker
 
 env:
-  - VERSION=8.36.0
+  - VERSION=8.37.0
   
 install:
   - git clone https://github.com/manios/docker-rsyslog.git

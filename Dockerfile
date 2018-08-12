@@ -5,7 +5,7 @@ FROM ubuntu:16.04
 ENV	DEBIAN_FRONTEND=noninteractive
 
 LABEL name="Rsyslog" \
-      version="8.36.0" \
+      version="8.37.0" \
       homepage="http://rsyslog.com" \
       maintainer="Christos Manios <maniopaido@gmail.com>"
 
@@ -35,7 +35,7 @@ RUN apt-get update \
         logrotate \
         libfastjson4 \
         liblogging-stdlog0 \
-        rsyslog=8.36.0-0adiscon5xenial1  \
+        rsyslog=8.37.0-0adiscon1xenial1 \
         rsyslog-doc \
         rsyslog-elasticsearch \
         rsyslog-imptcp \
