@@ -58,6 +58,7 @@ RUN apt-get update \
     && chmod 755 /usr/sbin/start-rsyslog \
     && chmod 755 /usr/sbin/lognorm \
     && update-rc.d -f rsyslog remove \
+    && chown -R syslog:syslog /var/spool/rsyslog \
     && echo "Configuring VIM" \
     && echo "set number" | tee -a /etc/vim/vimrc \
     && echo "syntax on" | tee -a /etc/vim/vimrc \
