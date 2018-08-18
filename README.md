@@ -21,4 +21,6 @@ RSYSLOG can deliver over one million messages per second to local destinations w
 
 # Aknowledgements
 
-* TODO
+This image would not be created without the help of the following images:
+
+* [rsyslog/rsyslog-docker](https://github.com/rsyslog/rsyslog-docker)
