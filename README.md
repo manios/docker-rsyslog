@@ -1,6 +1,6 @@
 # Supported tags and respective `Dockerfile` links
 
-* `8.37.0`, `8.37`, `latest` [(8.37.0/Dockerfile)](https://github.com/manios/docker-rsyslog/blob/master/Dockerfile)
+* `8.39.0`, `8.39`, `latest` [(8.39.0/Dockerfile)](https://github.com/manios/docker-rsyslog/blob/master/Dockerfile)
 
 
 [![](https://images.microbadger.com/badges/image/manios/rsyslog.svg)](https://microbadger.com/images/manios/rsyslog)  [![build status badge](https://img.shields.io/travis/manios/docker-rsyslog/master.svg)](https://travis-ci.org/manios/docker-rsyslog/branches)
